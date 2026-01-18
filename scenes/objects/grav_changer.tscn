@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgkm17e40yetu"]
+
+[ext_resource type="Script" path="res://scripts/grav_changer.gd" id="1_bndnm"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_vgu8a"]
+b = Vector2(-48, -0.00012207)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_310bx"]
+b = Vector2(47, 0)
+
+[node name="GravChanger" type="Node2D"]
+script = ExtResource("1_bndnm")
+
+[node name="GravOnArea" type="Area2D" parent="."]
+position = Vector2(50, -41)
+rotation = 3.14159
+
+[node name="GravOn" type="CollisionShape2D" parent="GravOnArea"]
+position = Vector2(49.9999, 22.0001)
+shape = SubResource("SegmentShape2D_vgu8a")
+
+[node name="GravOffArea" type="Area2D" parent="."]
+
+[node name="GravOff" type="CollisionShape2D" parent="GravOffArea"]
+shape = SubResource("SegmentShape2D_310bx")
+
+[connection signal="body_entered" from="GravOnArea" to="." method="_on_grav_on_area_body_entered"]
+[connection signal="body_entered" from="GravOffArea" to="." method="_on_grav_off_area_body_entered"]

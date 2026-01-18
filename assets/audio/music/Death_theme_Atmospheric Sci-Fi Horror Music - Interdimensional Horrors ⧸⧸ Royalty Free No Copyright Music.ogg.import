@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dmmvel5pm4xu0"
+path="res://.godot/imported/Death_theme_Atmospheric Sci-Fi Horror Music - Interdimensional Horrors ⧸⧸ Royalty Free No Copyright Music.ogg-b9e2161989b59ccb4515644d1a52faea.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/music/Death_theme_Atmospheric Sci-Fi Horror Music - Interdimensional Horrors ⧸⧸ Royalty Free No Copyright Music.ogg"
+dest_files=["res://.godot/imported/Death_theme_Atmospheric Sci-Fi Horror Music - Interdimensional Horrors ⧸⧸ Royalty Free No Copyright Music.ogg-b9e2161989b59ccb4515644d1a52faea.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

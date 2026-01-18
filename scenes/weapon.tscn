@@ -1,0 +1,207 @@
+[gd_scene load_steps=32 format=3 uid="uid://difnmmej4aug1"]
+
+[ext_resource type="Script" path="res://scripts/weapon.gd" id="1_qtmm3"]
+[ext_resource type="PackedScene" uid="uid://dk0hytxrl2p4i" path="res://scenes/projectiles/light_bullet.tscn" id="2_bh4ni"]
+[ext_resource type="PackedScene" uid="uid://cpq2clvamrxk2" path="res://scenes/projectiles/heavy_bullet.tscn" id="3_fw35j"]
+[ext_resource type="PackedScene" uid="uid://bp5h0om6gicd8" path="res://scenes/muzzle_flash.tscn" id="3_j3i2p"]
+[ext_resource type="AudioStream" uid="uid://b1edjlfukxu0w" path="res://assets/audio/weapon_sounds/Deagle.wav" id="3_y0tm0"]
+[ext_resource type="PackedScene" uid="uid://chyafcbjejn8c" path="res://scenes/projectiles/plasma_bullet.tscn" id="4_bbw3r"]
+[ext_resource type="Texture2D" uid="uid://cn50sx3fwmoqi" path="res://assets/sprites/weapons/stitch_N49.png" id="6_eg2h6"]
+[ext_resource type="Texture2D" uid="uid://pjo1m3b8fi0t" path="res://assets/sprites/weapons/explosion-Sheet.png" id="7_cjn0t"]
+[ext_resource type="AudioStream" uid="uid://d1kdi3qxogk6" path="res://assets/audio/weapon_sounds/submachine-gun-79846.mp3" id="8_4robw"]
+[ext_resource type="AudioStream" uid="uid://bismgjodlm0e2" path="res://assets/audio/weapon_sounds/shotgun.mp3" id="9_cflp1"]
+[ext_resource type="AudioStream" uid="uid://ew2xi6ggn20j" path="res://assets/audio/weapon_sounds/photon_pistol.mp3" id="10_p3nds"]
+[ext_resource type="AudioStream" uid="uid://bvprdtwdmdykj" path="res://assets/audio/weapon_sounds/Ion_BA.mp3" id="11_oosvg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2xpo3"]
+size = Vector2(9, 6)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_myu2a"]
+radius = 16.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0i0pp"]
+radius = 68.1175
+
+[sub_resource type="Gradient" id="Gradient_1awhm"]
+offsets = PackedFloat32Array(0, 0.0185792)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bcii1"]
+gradient = SubResource("Gradient_1awhm")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8f0j"]
+atlas = ExtResource("7_cjn0t")
+region = Rect2(192, 192, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xw5i"]
+atlas = ExtResource("7_cjn0t")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_op47r"]
+atlas = ExtResource("7_cjn0t")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6dfp"]
+atlas = ExtResource("7_cjn0t")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8hk5"]
+atlas = ExtResource("7_cjn0t")
+region = Rect2(0, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1seab"]
+atlas = ExtResource("7_cjn0t")
+region = Rect2(96, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fl5es"]
+atlas = ExtResource("7_cjn0t")
+region = Rect2(192, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1iv6d"]
+atlas = ExtResource("7_cjn0t")
+region = Rect2(0, 192, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yn5gr"]
+atlas = ExtResource("7_cjn0t")
+region = Rect2(96, 192, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r7tpo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h8f0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xw5i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_op47r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6dfp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8hk5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1seab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fl5es")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1iv6d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yn5gr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 16.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_hgk16"]
+offsets = PackedFloat32Array(0, 0.384279, 0.558952, 0.768559)
+colors = PackedColorArray(1, 1, 1, 1, 0.416174, 0.416174, 0.416174, 1, 0.217143, 0.217143, 0.217143, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vxak6"]
+gradient = SubResource("Gradient_hgk16")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_b3c6p"]
+offsets = PackedFloat32Array(0, 0.222707, 0.436681, 0.702899)
+colors = PackedColorArray(0.433803, 0.433803, 0.433803, 1, 0.278099, 0.278099, 0.278099, 1, 0.13024, 0.13024, 0.13024, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nwpkg"]
+gradient = SubResource("Gradient_b3c6p")
+width = 16
+height = 16
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Weapon" type="CharacterBody2D"]
+z_index = 2
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_qtmm3")
+light_bullet_scene = ExtResource("2_bh4ni")
+heavy_bullet_scene = ExtResource("3_fw35j")
+plasma_bullet_scene = ExtResource("4_bbw3r")
+muzzle_flash_scene = ExtResource("3_j3i2p")
+stitch_N49 = true
+
+[node name="WeaponImage" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_eg2h6")
+
+[node name="GunEnd" type="Marker2D" parent="."]
+position = Vector2(7, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2xpo3")
+
+[node name="GunShot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_y0tm0")
+volume_db = 10.0
+pitch_scale = 0.8
+bus = &"SFX"
+
+[node name="GunShot2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_4robw")
+pitch_scale = 0.8
+bus = &"SFX"
+
+[node name="GunShot3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_cflp1")
+pitch_scale = 0.8
+bus = &"SFX"
+
+[node name="PlasmaShot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_p3nds")
+volume_db = 5.0
+bus = &"SFX"
+
+[node name="PlasmaShot2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_oosvg")
+volume_db = 8.0
+bus = &"SFX"
+
+[node name="InteractableArea" type="Area2D" parent="."]
+
+[node name="InteractionCollision" type="CollisionShape2D" parent="InteractableArea"]
+shape = SubResource("CircleShape2D_myu2a")
+
+[node name="GrenadeNodes" type="Area2D" parent="." groups=["Explosion"]]
+
+[node name="ExplosionArea" type="CollisionShape2D" parent="GrenadeNodes" groups=["Explosion"]]
+shape = SubResource("CircleShape2D_0i0pp")
+disabled = true
+
+[node name="GrenadeLight" type="PointLight2D" parent="GrenadeNodes"]
+position = Vector2(0, -1.5)
+color = Color(0.877346, 3.87453e-06, 1.2514e-06, 1)
+energy = 0.0
+texture = SubResource("GradientTexture2D_bcii1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GrenadeNodes"]
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_r7tpo")
+frame_progress = 0.117879
+
+[node name="ExplosionLight" type="PointLight2D" parent="GrenadeNodes"]
+position = Vector2(1.90735e-06, -5.72205e-06)
+scale = Vector2(3.375, 3.21875)
+color = Color(1, 0.557755, 0.299841, 1)
+energy = 0.0
+texture = SubResource("GradientTexture2D_vxak6")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(1.5, 1.5)
+energy = 0.7
+texture = SubResource("GradientTexture2D_nwpkg")
+
+[connection signal="body_entered" from="InteractableArea" to="." method="_on_interactable_area_body_entered"]
+[connection signal="body_exited" from="InteractableArea" to="." method="_on_interactable_area_body_exited"]

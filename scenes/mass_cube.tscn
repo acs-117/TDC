@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://bw2wx336ylrog"]
+
+[ext_resource type="Script" path="res://scenes/mass_cube.gd" id="1_86nll"]
+[ext_resource type="Texture2D" uid="uid://fb8vssg8xq35" path="res://assets/sprites/scenery/items/mass_detection_box.png" id="1_mruye"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wm3g2"]
+size = Vector2(16, 19)
+
+[sub_resource type="Gradient" id="Gradient_s16gm"]
+offsets = PackedFloat32Array(0, 0.211207)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4t46o"]
+gradient = SubResource("Gradient_s16gm")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="MassCube" type="Area2D"]
+z_index = 3
+collision_mask = 9
+script = ExtResource("1_86nll")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_mruye")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_wm3g2")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 0, 0, 1)
+texture = SubResource("GradientTexture2D_4t46o")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

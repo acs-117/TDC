@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvaj4btgyne4q"]
+
+[ext_resource type="Script" path="res://scripts/fade_in.gd" id="1_40ivs"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_4wimt"]
+
+[node name="FadeIn" type="CanvasLayer"]
+script = ExtResource("1_40ivs")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+offset_right = 2791.0
+offset_bottom = 1656.0
+texture = SubResource("CanvasTexture_4wimt")

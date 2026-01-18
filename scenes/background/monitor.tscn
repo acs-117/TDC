@@ -1,0 +1,111 @@
+[gd_scene load_steps=10 format=3 uid="uid://g427ysshvggm"]
+
+[ext_resource type="Script" path="res://scripts/monitor.gd" id="1_og1dn"]
+[ext_resource type="Texture2D" uid="uid://chpxlaxx6qb8j" path="res://assets/sprites/scenery/items/monitor.png" id="2_uj2r3"]
+[ext_resource type="FontFile" uid="uid://e3k2p7adef8y" path="res://assets/font/Conduit ITC Bold.otf" id="3_xm1tj"]
+
+[sub_resource type="Gradient" id="Gradient_0b2b4"]
+offsets = PackedFloat32Array(0, 0.0742358, 0.41048, 0.624454)
+colors = PackedColorArray(1, 1, 1, 1, 0.301488, 0.301488, 0.301488, 1, 0.165957, 0.165957, 0.165957, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dakd4"]
+gradient = SubResource("Gradient_0b2b4")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_w2y3r"]
+offsets = PackedFloat32Array(0.790393, 0.943231, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.340611, 0.340611, 0.340611, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_arcwj"]
+gradient = SubResource("Gradient_w2y3r")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gwb3x"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4pv71"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Monitor" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_og1dn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("2_uj2r3")
+
+[node name="Point3" type="PointLight2D" parent="."]
+position = Vector2(-122, -82)
+color = Color(0.988235, 0.247059, 0.188235, 1)
+energy = 5.0
+texture = SubResource("GradientTexture2D_dakd4")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(57, -4.5)
+scale = Vector2(4.3125, 3.32813)
+color = Color(0.567622, 0.708996, 1, 1)
+texture = SubResource("GradientTexture2D_arcwj")
+
+[node name="Save" type="Button" parent="."]
+layout_mode = 0
+offset_left = -156.0
+offset_top = 21.0
+offset_right = -92.0
+offset_bottom = 39.0
+size_flags_vertical = 0
+theme_override_colors/font_hover_color = Color(0.385343, 0.543101, 0.797401, 1)
+theme_override_colors/font_color = Color(0.18359, 0.18359, 0.18359, 1)
+theme_override_fonts/font = ExtResource("3_xm1tj")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/hover = SubResource("StyleBoxFlat_gwb3x")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4pv71")
+text = "Save
+"
+
+[node name="Close" type="Button" parent="."]
+layout_mode = 0
+offset_left = -156.0
+offset_top = 57.0
+offset_right = -93.0
+offset_bottom = 75.0
+size_flags_vertical = 0
+theme_override_colors/font_hover_color = Color(1, 0.0909423, 0.0594644, 1)
+theme_override_colors/font_color = Color(0.197937, 0.197937, 0.197937, 1)
+theme_override_fonts/font = ExtResource("3_xm1tj")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/hover = SubResource("StyleBoxFlat_gwb3x")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4pv71")
+text = "Close
+"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+z_index = 3
+anchors_preset = -1
+anchor_left = 0.381
+anchor_top = 0.182
+anchor_right = 0.381
+anchor_bottom = 0.182
+offset_left = 0.0879822
+offset_top = 0.0639954
+offset_right = 899.088
+offset_bottom = 398.064
+theme_override_colors/font_color = Color(0.529412, 0.701961, 1, 1)
+theme_override_fonts/font = ExtResource("3_xm1tj")
+theme_override_font_sizes/font_size = 20
+autowrap_mode = 2
+
+[connection signal="pressed" from="Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="Close" to="." method="_on_close_pressed"]

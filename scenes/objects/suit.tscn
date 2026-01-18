@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvh28i8y6yjmn"]
+
+[ext_resource type="Script" path="res://scripts/suit.gd" id="1_0qjan"]
+[ext_resource type="Texture2D" uid="uid://bdxungbnu3lan" path="res://assets/sprites/scenery/items/hazmat_suit.png" id="1_55y5t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ifdg2"]
+size = Vector2(22, 47)
+
+[node name="Suit" type="Area2D"]
+script = ExtResource("1_0qjan")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_55y5t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_ifdg2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

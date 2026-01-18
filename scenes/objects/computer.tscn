@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://cjlwhx2f8cu00"]
+
+[ext_resource type="Script" path="res://scripts/computer.gd" id="1_h2ilw"]
+[ext_resource type="Texture2D" uid="uid://cn5awc77xm48e" path="res://assets/sprites/scenery/items/computer.png" id="2_prqcg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4qrf0"]
+radius = 31.0
+
+[sub_resource type="Gradient" id="Gradient_aetk4"]
+offsets = PackedFloat32Array(0.148472, 0.296943, 0.558952, 0.71179, 0.812227)
+colors = PackedColorArray(0.301488, 0.301488, 0.301488, 1, 0.165957, 0.165957, 0.165957, 1, 0.0709526, 0.0709526, 0.0709526, 1, 0.0234504, 0.0234504, 0.0234504, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lle5k"]
+gradient = SubResource("Gradient_aetk4")
+width = 16
+height = 16
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Computer" type="Area2D"]
+z_index = -1
+script = ExtResource("1_h2ilw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_prqcg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4qrf0")
+
+[node name="Point3" type="PointLight2D" parent="."]
+position = Vector2(-5, -2)
+color = Color(0.988235, 0.247059, 0.188235, 1)
+energy = 3.0
+texture = SubResource("GradientTexture2D_lle5k")
+texture_scale = 4.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

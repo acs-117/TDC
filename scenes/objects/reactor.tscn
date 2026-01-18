@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcrchjcx2od5b"]
+
+[ext_resource type="Texture2D" uid="uid://d3unjcfl31ua8" path="res://assets/sprites/scenery/prefab_objects/reactor.png" id="1_j40d3"]
+
+[sub_resource type="Gradient" id="Gradient_jjnwl"]
+offsets = PackedFloat32Array(0, 0.231441, 0.676856, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.754532, 0.754532, 0.754532, 1, 0.0488126, 0.0488126, 0.0488126, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bqbc5"]
+gradient = SubResource("Gradient_jjnwl")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Reactor" type="Sprite2D"]
+texture = ExtResource("1_j40d3")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(1.9375, 1.8125)
+color = Color(0.365898, 0.562773, 1, 1)
+energy = 3.0
+texture = SubResource("GradientTexture2D_bqbc5")

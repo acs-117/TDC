@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://dcvf1y10amslq"]
+
+[ext_resource type="Texture2D" uid="uid://dbwnmuhmn35yf" path="res://assets/sprites/scenery/prefab_objects/engine.png" id="1_urfgs"]
+[ext_resource type="Script" path="res://scripts/engine.gd" id="2_f4bta"]
+[ext_resource type="AudioStream" uid="uid://dgro3o6lvrqey" path="res://assets/audio/environment_sounds/engine.ogg" id="3_mjisc"]
+
+[sub_resource type="Curve" id="Curve_nsdtj"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.524008), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_rfpja"]
+
+[node name="Engine" type="Sprite2D"]
+texture = ExtResource("1_urfgs")
+script = ExtResource("2_f4bta")
+
+[node name="EngineSmoke" type="CPUParticles2D" parent="."]
+position = Vector2(28, -15)
+amount = 100
+lifetime = 1.5
+emission_shape = 1
+emission_sphere_radius = 10.0
+spread = 0.0
+gravity = Vector2(25, -100)
+radial_accel_min = 10.0
+radial_accel_max = 20.0
+scale_amount_min = 3.0
+scale_amount_max = 6.0
+scale_amount_curve = SubResource("Curve_nsdtj")
+color = Color(0.721569, 0.721569, 0.721569, 0.341176)
+color_ramp = SubResource("Gradient_rfpja")
+
+[node name="EngineSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_mjisc")
+max_distance = 300.0
+attenuation = 0.732044

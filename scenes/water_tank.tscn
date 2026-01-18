@@ -1,0 +1,128 @@
+[gd_scene load_steps=19 format=3 uid="uid://0cdcg2s0wfgp"]
+
+[ext_resource type="Script" path="res://scripts/water_tank.gd" id="1_77kml"]
+[ext_resource type="Texture2D" uid="uid://dvnjdjpyxcypi" path="res://assets/sprites/scenery/prefab_objects/WaterTank.png" id="1_ghtp8"]
+[ext_resource type="AudioStream" uid="uid://bdeni1x763o8g" path="res://assets/audio/environment_sounds/bubbles.ogg" id="3_ne1nu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekm0j"]
+atlas = ExtResource("1_ghtp8")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hk7kt"]
+atlas = ExtResource("1_ghtp8")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w16i7"]
+atlas = ExtResource("1_ghtp8")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nxywe"]
+atlas = ExtResource("1_ghtp8")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67aec"]
+atlas = ExtResource("1_ghtp8")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o00er"]
+atlas = ExtResource("1_ghtp8")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_thkjy"]
+atlas = ExtResource("1_ghtp8")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtbo7"]
+atlas = ExtResource("1_ghtp8")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13mbm"]
+atlas = ExtResource("1_ghtp8")
+region = Rect2(128, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xah74"]
+atlas = ExtResource("1_ghtp8")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k45ma"]
+atlas = ExtResource("1_ghtp8")
+region = Rect2(64, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eet31"]
+atlas = ExtResource("1_ghtp8")
+region = Rect2(128, 192, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uj0mq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekm0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hk7kt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w16i7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nxywe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67aec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o00er")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_thkjy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtbo7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13mbm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xah74")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k45ma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eet31")
+}],
+"loop": true,
+"name": &"water_tank",
+"speed": 8.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_5ph7c"]
+offsets = PackedFloat32Array(0.268041, 0.737113, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.155689, 0.155689, 0.155689, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_glarh"]
+gradient = SubResource("Gradient_5ph7c")
+width = 128
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
+[node name="WaterTank" type="Node2D"]
+script = ExtResource("1_77kml")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_uj0mq")
+animation = &"water_tank"
+autoplay = "water_tank"
+frame_progress = 0.99804
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, 2.38419e-07)
+scale = Vector2(1.98438, 1.5)
+color = Color(0.466667, 0.74902, 1, 1)
+energy = 2.0
+texture = SubResource("GradientTexture2D_glarh")
+
+[node name="Bubbles" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ne1nu")
+autoplay = true
+max_distance = 100.0

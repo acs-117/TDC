@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bp5h0om6gicd8"]
+
+[ext_resource type="Script" path="res://scripts/muzzle_flash.gd" id="1_tye7s"]
+
+[sub_resource type="Gradient" id="Gradient_3vwb3"]
+offsets = PackedFloat32Array(0, 0.782609)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_boyt8"]
+gradient = SubResource("Gradient_3vwb3")
+width = 16
+height = 8
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="MuzzleFlash" type="PointLight2D"]
+color = Color(0.909804, 0.470588, 0, 1)
+energy = 10.0
+texture = SubResource("GradientTexture2D_boyt8")
+script = ExtResource("1_tye7s")

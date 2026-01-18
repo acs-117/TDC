@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://b6tcvd0l0cf3o"]
+
+[ext_resource type="Script" path="res://scripts/health_pack.gd" id="1_m4r1q"]
+[ext_resource type="Texture2D" uid="uid://sah4wjpyvshm" path="res://assets/sprites/scenery/items/HealthPack.png" id="2_a2pfi"]
+[ext_resource type="AudioStream" uid="uid://cg0asshvgavn" path="res://assets/audio/environment_sounds/healing.wav" id="3_5ssts"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4mo17"]
+radius = 11.0
+
+[sub_resource type="Gradient" id="Gradient_dcgto"]
+offsets = PackedFloat32Array(0, 0.76087)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3da4j"]
+gradient = SubResource("Gradient_dcgto")
+width = 16
+height = 16
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="HealthPack" type="Area2D"]
+script = ExtResource("1_m4r1q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_a2pfi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4mo17")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, 2)
+color = Color(0, 1, 0, 1)
+texture = SubResource("GradientTexture2D_3da4j")
+
+[node name="Healing" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_5ssts")
+pitch_scale = 1.5
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

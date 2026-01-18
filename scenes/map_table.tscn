@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://cnb32wssyjkwm"]
+
+[ext_resource type="Texture2D" uid="uid://dsaou330w5txu" path="res://assets/sprites/scenery/prefab_objects/map.png" id="1_nd254"]
+
+[sub_resource type="Gradient" id="Gradient_geq5j"]
+offsets = PackedFloat32Array(0, 0.554348, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.447699, 0.447699, 0.447699, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_crfp3"]
+gradient = SubResource("Gradient_geq5j")
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Gradient" id="Gradient_eil0p"]
+offsets = PackedFloat32Array(0, 0.76087)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jjogm"]
+gradient = SubResource("Gradient_eil0p")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="MapTable" type="Sprite2D"]
+texture = ExtResource("1_nd254")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(0, -34)
+scale = Vector2(1, 1.5625)
+color = Color(0.490196, 0.65098, 1, 1)
+energy = 2.0
+texture = SubResource("GradientTexture2D_crfp3")
+
+[node name="PointLight2D" type="PointLight2D" parent="PointLight2D"]
+visible = false
+position = Vector2(0.499998, 15.68)
+scale = Vector2(2.10938, 0.91)
+texture = SubResource("GradientTexture2D_jjogm")

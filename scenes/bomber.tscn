@@ -1,0 +1,85 @@
+[gd_scene load_steps=13 format=3 uid="uid://tyh46cv3r25j"]
+
+[ext_resource type="Script" path="res://scripts/bomber.gd" id="1_uo7sc"]
+[ext_resource type="PackedScene" uid="uid://dwggswhcp58fe" path="res://scenes/blood.tscn" id="2_vec5p"]
+[ext_resource type="Texture2D" uid="uid://bv14ppl8lb4tn" path="res://assets/sprites/infected/Bomber.png" id="2_xo0ed"]
+[ext_resource type="PackedScene" uid="uid://dj5barwpegegd" path="res://scenes/projectiles/bomb.tscn" id="3_5m7lw"]
+[ext_resource type="Texture2D" uid="uid://bs3moaw0opd33" path="res://assets/sprites/infected/shield.png" id="5_5544q"]
+[ext_resource type="Texture2D" uid="uid://b8fs6bc74e017" path="res://assets/sprites/infected/bomber_gun.png" id="5_x8j7n"]
+[ext_resource type="AudioStream" uid="uid://dui2627d2i2pu" path="res://assets/audio/enemy_sounds/damage sound.mp3" id="7_44n8u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1pl8y"]
+atlas = ExtResource("2_xo0ed")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k7tw1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1pl8y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4iep"]
+size = Vector2(16, 29)
+
+[sub_resource type="Gradient" id="Gradient_uf6jv"]
+offsets = PackedFloat32Array(0, 0.165939, 0.362445, 0.598253, 0.816594)
+colors = PackedColorArray(1, 1, 1, 1, 0.51912, 0.51912, 0.51912, 1, 0.287268, 0.287268, 0.287268, 1, 0.124962, 0.124962, 0.124962, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_v724e"]
+gradient = SubResource("Gradient_uf6jv")
+width = 16
+height = 16
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Bomber" type="CharacterBody2D"]
+z_index = 2
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_uo7sc")
+detection_radius = 200.0
+health = 70
+blood_scene = ExtResource("2_vec5p")
+bomb_scene = ExtResource("3_5m7lw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_k7tw1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_g4iep")
+
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_g4iep")
+
+[node name="Rotator" type="Node2D" parent="."]
+position = Vector2(0, 5)
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Rotator"]
+texture = ExtResource("5_x8j7n")
+
+[node name="Shield" type="Sprite2D" parent="."]
+position = Vector2(0, -6)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("5_5544q")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -10)
+color = Color(0, 0.737316, 0.312572, 1)
+energy = 3.0
+texture = SubResource("GradientTexture2D_v724e")
+
+[node name="Hurt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_44n8u")
+bus = &"SFX"
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

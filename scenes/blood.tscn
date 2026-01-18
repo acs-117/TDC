@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwggswhcp58fe"]
+
+[sub_resource type="Curve" id="Curve_fl0kf"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.498956), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_rsrmi"]
+colors = PackedColorArray(1, 1, 1, 1, 0.413284, 0.413284, 0.413284, 1)
+
+[node name="Blood" type="CPUParticles2D"]
+z_index = 1
+emitting = false
+amount = 40
+one_shot = true
+speed_scale = 2.0
+emission_shape = 1
+emission_sphere_radius = 2.0
+gravity = Vector2(0, 100)
+initial_velocity_max = 50.0
+radial_accel_max = 20.0
+scale_amount_min = 0.5
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_fl0kf")
+color = Color(0.839216, 0, 0, 1)
+color_ramp = SubResource("Gradient_rsrmi")

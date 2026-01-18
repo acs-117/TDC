@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2lvtf1q56lj8"]
+
+[ext_resource type="Script" path="res://scripts/sliding_door.gd" id="1_lbi0t"]
+[ext_resource type="Texture2D" uid="uid://ddd2ot1iwhdpc" path="res://assets/sprites/scenery/prefab_objects/sliding_door.png" id="1_vcf4j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lym3h"]
+size = Vector2(12, 64)
+
+[node name="SlidingDoor" type="CharacterBody2D"]
+script = ExtResource("1_lbi0t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_vcf4j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_lym3h")

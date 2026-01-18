@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dxrs3hls6maqx"
+path="res://.godot/imported/Final_Boss-Evil Darksynth - Wrath Royalty Free Copyright Safe Music.ogg-3c4910e13db24c063b92069cebf8ace4.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/music/Final_Boss-Evil Darksynth - Wrath Royalty Free Copyright Safe Music.ogg"
+dest_files=["res://.godot/imported/Final_Boss-Evil Darksynth - Wrath Royalty Free Copyright Safe Music.ogg-3c4910e13db24c063b92069cebf8ace4.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

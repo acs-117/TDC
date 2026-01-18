@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dixpqgeetceli"]
+
+[ext_resource type="Script" path="res://scripts/breaking_block.gd" id="1_df4cf"]
+[ext_resource type="Texture2D" uid="uid://tbn3xxmwlubc" path="res://assets/sprites/scenery/prefab_objects/breaking_block.png" id="2_jsoxa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jjlrx"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_blyjf"]
+size = Vector2(16, 16)
+
+[node name="BreakingBlock" type="RigidBody2D" groups=["box"]]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_df4cf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_jsoxa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jjlrx")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_blyjf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

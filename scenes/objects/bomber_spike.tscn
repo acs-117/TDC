@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bi2qebt8w687"]
+
+[ext_resource type="Script" path="res://scripts/bomber_spike.gd" id="1_5u1q6"]
+[ext_resource type="Texture2D" uid="uid://bv14ppl8lb4tn" path="res://assets/sprites/infected/Bomber.png" id="1_xhbit"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7mrdu"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ld2xw"]
+
+[node name="BomberSpike" type="CharacterBody2D"]
+z_index = 2
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_5u1q6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_xhbit")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7mrdu")
+
+[node name="HitZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitZone"]
+shape = SubResource("CircleShape2D_ld2xw")
+
+[connection signal="body_entered" from="HitZone" to="." method="_on_hit_zone_body_entered"]

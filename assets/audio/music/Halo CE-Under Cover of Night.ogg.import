@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://t1elt6atvwgi"
+path="res://.godot/imported/Halo CE-Under Cover of Night.ogg-d9a5729e39b366ca0a080deb63d692a9.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/music/Halo CE-Under Cover of Night.ogg"
+dest_files=["res://.godot/imported/Halo CE-Under Cover of Night.ogg-d9a5729e39b366ca0a080deb63d692a9.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

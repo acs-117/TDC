@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://cb86llnwbw2nx"]
+
+[ext_resource type="Script" path="res://scripts/ammo.gd" id="1_546t1"]
+[ext_resource type="Texture2D" uid="uid://dwcq0gi5cb87i" path="res://assets/sprites/scenery/items/light_ammo.png" id="2_gh456"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2f55v"]
+
+[sub_resource type="Gradient" id="Gradient_ugm88"]
+offsets = PackedFloat32Array(0, 0.222707, 0.436681, 0.702899)
+colors = PackedColorArray(0.433803, 0.433803, 0.433803, 1, 0.278099, 0.278099, 0.278099, 1, 0.13024, 0.13024, 0.13024, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_l5t58"]
+gradient = SubResource("Gradient_ugm88")
+width = 16
+height = 16
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Ammo" type="Area2D"]
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_546t1")
+
+[node name="AmmoSprite" type="Sprite2D" parent="."]
+position = Vector2(0, 3)
+texture = ExtResource("2_gh456")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_2f55v")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, 5)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("GradientTexture2D_l5t58")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

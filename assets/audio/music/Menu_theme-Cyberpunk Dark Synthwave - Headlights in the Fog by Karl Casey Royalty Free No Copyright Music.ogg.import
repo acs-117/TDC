@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cqwmfjkeq60yk"
+path="res://.godot/imported/Menu_theme-Cyberpunk Dark Synthwave - Headlights in the Fog by Karl Casey Royalty Free No Copyright Music.ogg-0139b08d440d4dc8443d91ea527c2c85.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/music/Menu_theme-Cyberpunk Dark Synthwave - Headlights in the Fog by Karl Casey Royalty Free No Copyright Music.ogg"
+dest_files=["res://.godot/imported/Menu_theme-Cyberpunk Dark Synthwave - Headlights in the Fog by Karl Casey Royalty Free No Copyright Music.ogg-0139b08d440d4dc8443d91ea527c2c85.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

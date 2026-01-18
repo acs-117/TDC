@@ -1,0 +1,256 @@
+[gd_scene load_steps=8 format=3 uid="uid://caf0ajg3r4o3f"]
+
+[ext_resource type="Script" path="res://scripts/intro.gd" id="1_gy0f5"]
+[ext_resource type="PackedScene" uid="uid://bwbglaydywfbx" path="res://scenes/background/fading_label.tscn" id="1_mjpvn"]
+[ext_resource type="PackedScene" uid="uid://cvaj4btgyne4q" path="res://scenes/background/fade_in.tscn" id="1_x50vf"]
+[ext_resource type="AudioStream" uid="uid://bu8447gfj0jbs" path="res://assets/audio/music/Rain.ogg" id="4_owjae"]
+[ext_resource type="FontFile" uid="uid://coigu0eoe2rft" path="res://assets/font/PixelOperator8.ttf" id="5_wu8pv"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_444h4"]
+
+[sub_resource type="Environment" id="Environment_m4bcm"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 2.0
+glow_bloom = 0.5
+
+[node name="Intro" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gy0f5")
+
+[node name="FadeIn" parent="." instance=ExtResource("1_x50vf")]
+visible = false
+fade_speed = 0.1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -61.0
+offset_right = 2097.0
+offset_bottom = 1059.0
+texture = SubResource("CanvasTexture_444h4")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_m4bcm")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -230.0
+offset_right = 239.0
+offset_bottom = 952.0
+grow_horizontal = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Fading Label" parent="VBoxContainer" instance=ExtResource("1_mjpvn")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "The year is 2107
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+visibility_timer = 2.0
+invisibility_timer = 8.0
+typing_speed = 1.0
+
+[node name="Fading Label2" parent="VBoxContainer" instance=ExtResource("1_mjpvn")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "in the aftermath of a
+2 decade long war....
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+visibility_timer = 5.0
+invisibility_timer = 8.0
+typing_speed = 0.8
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -230.0
+offset_right = 239.0
+offset_bottom = 952.0
+grow_horizontal = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Fading Label" parent="VBoxContainer2" instance=ExtResource("1_mjpvn")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Humanity is going
+extinct"
+horizontal_alignment = 1
+visibility_timer = 12.0
+invisibility_timer = 27.0
+typing_speed = 1.0
+
+[node name="Fading Label2" parent="VBoxContainer2" instance=ExtResource("1_mjpvn")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Not by our weapons, 
+but something far..far 
+worse."
+horizontal_alignment = 1
+visibility_timer = 17.0
+invisibility_timer = 27.0
+typing_speed = 0.7
+
+[node name="Fading Label3" parent="VBoxContainer2" instance=ExtResource("1_mjpvn")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "The deadliest Plague 
+mankind has ever faced"
+horizontal_alignment = 1
+visibility_timer = 24.0
+invisibility_timer = 27.0
+typing_speed = 0.8
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -230.0
+offset_right = 239.0
+offset_bottom = 952.0
+grow_horizontal = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Fading Label" parent="VBoxContainer3" instance=ExtResource("1_mjpvn")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "We cannot save earth
+"
+horizontal_alignment = 1
+visibility_timer = 30.0
+invisibility_timer = 45.0
+typing_speed = 1.0
+
+[node name="Fading Label2" parent="VBoxContainer3" instance=ExtResource("1_mjpvn")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Most countries have been
+ quarantined and some have
+ evacuated their people 
+into the lunar colonies 
+in spaceships
+"
+horizontal_alignment = 1
+visibility_timer = 35.0
+invisibility_timer = 45.0
+typing_speed = 0.4
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -230.0
+offset_right = 239.0
+offset_bottom = 952.0
+grow_horizontal = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Fading Label" parent="VBoxContainer4" instance=ExtResource("1_mjpvn")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "You are an engine mechanic
+ in one of these ships
+"
+horizontal_alignment = 1
+visibility_timer = 50.0
+invisibility_timer = 62.0
+typing_speed = 0.6
+
+[node name="Fading Label2" parent="VBoxContainer4" instance=ExtResource("1_mjpvn")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "But this journey is 
+going to take a turn for
+ the worst"
+horizontal_alignment = 1
+visibility_timer = 55.0
+invisibility_timer = 62.0
+typing_speed = 0.6
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -230.0
+offset_right = 239.0
+offset_bottom = 952.0
+grow_horizontal = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Fading Label" parent="VBoxContainer5" instance=ExtResource("1_mjpvn")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_wu8pv")
+theme_override_font_sizes/font_size = 40
+text = "A Game by ACS
+"
+horizontal_alignment = 1
+visibility_timer = 65.0
+invisibility_timer = 70.0
+typing_speed = 1.0
+
+[node name="Fading Label2" parent="VBoxContainer5" instance=ExtResource("1_mjpvn")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_wu8pv")
+theme_override_font_sizes/font_size = 25
+text = "Music from: 
+
+Carl Kasey- (White bat audio)
+Halo CE, 2 ODST
+"
+visibility_timer = 72.0
+invisibility_timer = 77.0
+typing_speed = 0.7
+
+[node name="bg" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_owjae")
+autoplay = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(785, 526)
+amount = 800
+lifetime = 5.0
+speed_scale = 0.05
+emission_shape = 3
+emission_rect_extents = Vector2(1200, 600)
+gravity = Vector2(200, 0)
+radial_accel_max = 5.0
+scale_amount_min = 0.5
+scale_amount_max = 2.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -392.0
+offset_top = -44.0
+offset_right = -12.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("5_wu8pv")
+theme_override_font_sizes/font_size = 20
+text = "press [space] to skip"

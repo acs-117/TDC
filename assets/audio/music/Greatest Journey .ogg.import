@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://5hh70kcnmjp8"
+path="res://.godot/imported/Greatest Journey .ogg-6f56511774c7c358ea445f7a4c167bb8.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/music/Greatest Journey .ogg"
+dest_files=["res://.godot/imported/Greatest Journey .ogg-6f56511774c7c358ea445f7a4c167bb8.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

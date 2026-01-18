@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://cufja6swx02k0"]
+
+[ext_resource type="Texture2D" uid="uid://lllqah2by0a2" path="res://assets/sprites/scenery/d775ufv-b90740cd-0664-48a1-9de9-04518f65b857.png" id="1_045pt"]
+[ext_resource type="Shader" path="res://shaders/space.gdshader" id="1_awy72"]
+[ext_resource type="Script" path="res://scripts/space.gd" id="1_w6ua1"]
+
+[sub_resource type="Gradient" id="Gradient_37c0e"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ggxf6"]
+gradient = SubResource("Gradient_37c0e")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wfif7"]
+shader = ExtResource("1_awy72")
+
+[node name="Space" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w6ua1")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+light_mask = 2
+z_index = -2
+position = Vector2(-166, -87)
+energy = 2.0
+texture = SubResource("GradientTexture2D_ggxf6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visibility_layer = 2
+material = SubResource("ShaderMaterial_wfif7")
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_045pt")

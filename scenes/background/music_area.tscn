@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://8wcqwq5shijc"]
+
+[ext_resource type="Script" path="res://scripts/music_area.gd" id="1_7aoow"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6e0tu"]
+
+[node name="MusicArea" type="Area2D"]
+audio_bus_name = &"Music"
+script = ExtResource("1_7aoow")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_6e0tu")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." groups=["music"]]
+bus = &"Music"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

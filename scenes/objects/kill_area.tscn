@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckp043vlrveu7"]
+
+[ext_resource type="Script" path="res://scripts/kill_area.gd" id="1_wqt6p"]
+
+[node name="KillArea" type="Area2D"]
+script = ExtResource("1_wqt6p")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

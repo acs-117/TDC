@@ -1,0 +1,179 @@
+[gd_scene load_steps=26 format=3 uid="uid://dcd22u82iop6n"]
+
+[ext_resource type="Script" path="res://scripts/crawler.gd" id="1_xfvl1"]
+[ext_resource type="Texture2D" uid="uid://jhvuwfm5jpel" path="res://assets/sprites/infected/Crawler_Leap.png" id="2_2kgy4"]
+[ext_resource type="PackedScene" uid="uid://dwggswhcp58fe" path="res://scenes/blood.tscn" id="2_5k154"]
+[ext_resource type="Shader" path="res://shaders/damage_flash.gdshader" id="2_alf06"]
+[ext_resource type="AudioStream" uid="uid://jp5b6sbp1505" path="res://assets/audio/enemy_sounds/crawler_leap.mp3" id="5_smrs2"]
+[ext_resource type="AudioStream" uid="uid://bud3vhb6ux7vr" path="res://assets/audio/enemy_sounds/stalker_hurt.mp3" id="6_kpnvl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wimhb"]
+shader = ExtResource("2_alf06")
+shader_parameter/flash_color = Color(1, 0, 0, 1)
+shader_parameter/flash_value = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xet8p"]
+atlas = ExtResource("2_2kgy4")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bd0fu"]
+atlas = ExtResource("2_2kgy4")
+region = Rect2(0, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t62ay"]
+atlas = ExtResource("2_2kgy4")
+region = Rect2(64, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_avdm4"]
+atlas = ExtResource("2_2kgy4")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6mry0"]
+atlas = ExtResource("2_2kgy4")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htsuh"]
+atlas = ExtResource("2_2kgy4")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qiyid"]
+atlas = ExtResource("2_2kgy4")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0niay"]
+atlas = ExtResource("2_2kgy4")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hmok"]
+atlas = ExtResource("2_2kgy4")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8lx4"]
+atlas = ExtResource("2_2kgy4")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7otui"]
+atlas = ExtResource("2_2kgy4")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4clb"]
+atlas = ExtResource("2_2kgy4")
+region = Rect2(128, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lyo82"]
+atlas = ExtResource("2_2kgy4")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ian7"]
+atlas = ExtResource("2_2kgy4")
+region = Rect2(64, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r68es"]
+atlas = ExtResource("2_2kgy4")
+region = Rect2(128, 192, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ikuqm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xet8p")
+}],
+"loop": true,
+"name": &"crawler_floor",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bd0fu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t62ay")
+}],
+"loop": true,
+"name": &"crawler_hurt",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_avdm4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6mry0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htsuh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qiyid")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0niay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5hmok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8lx4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7otui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4clb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lyo82")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ian7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r68es")
+}],
+"loop": false,
+"name": &"crawler_leap",
+"speed": 24.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2i3eq"]
+size = Vector2(20, 0)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sas4g"]
+radius = 11.25
+
+[node name="Crawler" type="CharacterBody2D" groups=["Enemy"]]
+z_index = 2
+scale = Vector2(0.8, 0.8)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_xfvl1")
+health = 40
+blood_scene = ExtResource("2_5k154")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_wimhb")
+position = Vector2(1, 10)
+sprite_frames = SubResource("SpriteFrames_ikuqm")
+animation = &"crawler_leap"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_2i3eq")
+
+[node name="Hitbox" type="Area2D" parent="." groups=["Enemy"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, 10)
+shape = SubResource("CircleShape2D_sas4g")
+
+[node name="Leap" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_smrs2")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="Hurt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_kpnvl")
+bus = &"SFX"
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

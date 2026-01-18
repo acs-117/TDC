@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bwjbiyrieb4d1"
+path="res://.godot/imported/Halo 2 Soundtrack _ High Charity Suite - Rue and Woe(1).ogg-072fd2c57a75c72e27f08fe30076060f.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/music/Halo 2 Soundtrack _ High Charity Suite - Rue and Woe(1).ogg"
+dest_files=["res://.godot/imported/Halo 2 Soundtrack _ High Charity Suite - Rue and Woe(1).ogg-072fd2c57a75c72e27f08fe30076060f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

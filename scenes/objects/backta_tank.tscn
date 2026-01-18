@@ -1,0 +1,126 @@
+[gd_scene load_steps=19 format=3 uid="uid://ch3o7x86roisj"]
+
+[ext_resource type="Script" path="res://scripts/backta_tank.gd" id="1_diim3"]
+[ext_resource type="Texture2D" uid="uid://c2upkgwtymawx" path="res://assets/sprites/scenery/prefab_objects/BacktaTank.png" id="1_mbodf"]
+[ext_resource type="AudioStream" uid="uid://bdeni1x763o8g" path="res://assets/audio/environment_sounds/bubbles.ogg" id="3_wrhlr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x52rv"]
+atlas = ExtResource("1_mbodf")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lppg"]
+atlas = ExtResource("1_mbodf")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oek4d"]
+atlas = ExtResource("1_mbodf")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32c1q"]
+atlas = ExtResource("1_mbodf")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omo6d"]
+atlas = ExtResource("1_mbodf")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1euhx"]
+atlas = ExtResource("1_mbodf")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40rlq"]
+atlas = ExtResource("1_mbodf")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6b4f"]
+atlas = ExtResource("1_mbodf")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_euj5v"]
+atlas = ExtResource("1_mbodf")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpbvm"]
+atlas = ExtResource("1_mbodf")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3f2pr"]
+atlas = ExtResource("1_mbodf")
+region = Rect2(128, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4o783"]
+atlas = ExtResource("1_mbodf")
+region = Rect2(192, 128, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wp4ak"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x52rv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lppg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oek4d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32c1q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omo6d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1euhx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40rlq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6b4f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_euj5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wpbvm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3f2pr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4o783")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_0f783"]
+offsets = PackedFloat32Array(0.296943, 0.532751, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.593886, 0.593886, 0.593886, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qv6eo"]
+gradient = SubResource("Gradient_0f783")
+width = 128
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
+[node name="BacktaTank" type="Node2D"]
+script = ExtResource("1_diim3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wp4ak")
+autoplay = "default"
+frame_progress = 0.691025
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(1.49999, 1.5)
+scale = Vector2(2.07031, 1.89063)
+color = Color(1.39579e-06, 0.610609, 6.73831e-06, 1)
+energy = 2.0
+texture = SubResource("GradientTexture2D_qv6eo")
+
+[node name="Bubbles" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_wrhlr")
+max_distance = 100.0

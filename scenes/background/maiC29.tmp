@@ -1,0 +1,206 @@
+[gd_scene load_steps=20 format=3 uid="uid://bwnu5nkcgyyw0"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_5umtd"]
+[ext_resource type="FontFile" uid="uid://e3k2p7adef8y" path="res://assets/font/Conduit ITC Bold.otf" id="2_06s4f"]
+[ext_resource type="Texture2D" uid="uid://lllqah2by0a2" path="res://assets/sprites/scenery/d775ufv-b90740cd-0664-48a1-9de9-04518f65b857.png" id="2_yrjnl"]
+[ext_resource type="Texture2D" uid="uid://pbjwtmbgcg18" path="res://assets/sprites/UI/spaceship_background-Sheet.png" id="3_566f6"]
+[ext_resource type="FontFile" uid="uid://gyrybf8uo0yv" path="res://assets/font/RubikDistressed-Regular.ttf" id="4_cum6j"]
+[ext_resource type="FontFile" uid="uid://cpd5o8sc6kvg8" path="res://assets/font/SixtyfourConvergence-Regular-VariableFont_BLED,SCAN,XELA,YELA.ttf" id="5_s1sx7"]
+[ext_resource type="AudioStream" uid="uid://dficnlmebcb4t" path="res://assets/audio/music/Cyberpunk Dark Synthwave - Headlights in the Fog by Karl Casey Royalty Free No Copyright Music.ogg" id="7_eoci3"]
+[ext_resource type="AudioStream" uid="uid://sfwx51yqmfl6" path="res://assets/audio/370849__cabled_mess__clack_minimal-ui-sounds.wav" id="8_d8vwk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cm6oc"]
+atlas = ExtResource("3_566f6")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5r477"]
+atlas = ExtResource("3_566f6")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skeic"]
+atlas = ExtResource("3_566f6")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yq3k0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cm6oc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5r477")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_skeic")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fhck5"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hybpj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1h11q"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ccn8l"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_65mb2"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u6v8f"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="Environment" id="Environment_fm3ww"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 2.0
+glow_bloom = 0.5
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5umtd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.356863, 0.356863, 0.780392, 1)
+z_index = -1
+position = Vector2(1128, 513)
+scale = Vector2(3, 3)
+texture = ExtResource("2_yrjnl")
+
+[node name="Spaceship" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1332, 795)
+scale = Vector2(20, 20)
+sprite_frames = SubResource("SpriteFrames_yq3k0")
+autoplay = "default"
+frame_progress = 0.682138
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0.529412, 0.701961, 1, 1)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -218.0
+offset_top = 174.0
+offset_right = 218.0
+offset_bottom = 269.0
+grow_horizontal = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("4_cum6j")
+theme_override_font_sizes/font_size = 140
+text = "Doomsday"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Label2" type="Label" parent="."]
+modulate = Color(0.527587, 0.701264, 1, 1)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -388.0
+offset_top = 319.0
+offset_right = 382.0
+offset_bottom = 390.0
+grow_horizontal = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("5_s1sx7")
+theme_override_font_sizes/font_size = 70
+text = "Contingency"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -117.0
+offset_right = 39.0
+offset_bottom = 489.0
+grow_horizontal = 2
+scale = Vector2(1.5, 1.5)
+theme_override_constants/margin_top = 0
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+color = Color(0, 0, 0, 0.529412)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="Continue" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_hover_color = Color(0.25098, 0.584314, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_06s4f")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_fhck5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hybpj")
+text = "Continue"
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_hover_color = Color(0.25098, 0.584314, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_06s4f")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_fhck5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hybpj")
+text = "New Game"
+
+[node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_hover_color = Color(0.25098, 0.584314, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_06s4f")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_1h11q")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ccn8l")
+text = "Options"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_hover_color = Color(0.25098, 0.584314, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_06s4f")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_65mb2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_u6v8f")
+text = "Quit"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_fm3ww")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_eoci3")
+autoplay = true
+
+[node name="UISound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_d8vwk")
+volume_db = -5.0
+
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Continue" to="." method="_on_play_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Continue" to="." method="_on_play_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

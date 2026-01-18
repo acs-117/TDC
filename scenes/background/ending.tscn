@@ -1,0 +1,215 @@
+[gd_scene load_steps=8 format=3 uid="uid://dg52cnta4whuc"]
+
+[ext_resource type="Script" path="res://scripts/ending.gd" id="1_dbtks"]
+[ext_resource type="PackedScene" uid="uid://cvaj4btgyne4q" path="res://scenes/background/fade_in.tscn" id="1_ggkjn"]
+[ext_resource type="AudioStream" uid="uid://3ojhho6708sw" path="res://assets/audio/music/Unforgotten.ogg" id="3_im5nm"]
+[ext_resource type="PackedScene" uid="uid://bwbglaydywfbx" path="res://scenes/background/fading_label.tscn" id="3_v70m6"]
+[ext_resource type="FontFile" uid="uid://coigu0eoe2rft" path="res://assets/font/PixelOperator8.ttf" id="4_etvfb"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_gl606"]
+
+[sub_resource type="Environment" id="Environment_nr5hk"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 2.0
+glow_bloom = 0.5
+
+[node name="Ending" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dbtks")
+
+[node name="FadeIn" parent="." instance=ExtResource("1_ggkjn")]
+visible = false
+fade_speed = 0.1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -61.0
+offset_right = 2097.0
+offset_bottom = 1059.0
+texture = SubResource("CanvasTexture_gl606")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nr5hk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -237.5
+offset_right = 246.5
+offset_bottom = 952.0
+grow_horizontal = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Fading Label" parent="VBoxContainer" instance=ExtResource("3_v70m6")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "The infection spread
+swiftly. Mercilessly.
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+visibility_timer = 2.0
+invisibility_timer = 10.0
+typing_speed = 0.7
+
+[node name="Fading Label2" parent="VBoxContainer" instance=ExtResource("3_v70m6")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Turning every last
+one of them
+against you"
+horizontal_alignment = 1
+vertical_alignment = 1
+visibility_timer = 8.0
+invisibility_timer = 10.0
+typing_speed = 0.7
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -237.5
+offset_right = 246.5
+offset_bottom = 952.0
+grow_horizontal = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Fading Label" parent="VBoxContainer2" instance=ExtResource("3_v70m6")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "No one in the ship survived.
+Not even you.
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+visibility_timer = 15.0
+invisibility_timer = 25.0
+typing_speed = 0.7
+
+[node name="Fading Label2" parent="VBoxContainer2" instance=ExtResource("3_v70m6")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "The lunar population
+will think of this as an
+engine malfunction.
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+visibility_timer = 20.0
+invisibility_timer = 25.0
+typing_speed = 0.5
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -237.5
+offset_right = 246.5
+offset_bottom = 952.0
+grow_horizontal = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Fading Label" parent="VBoxContainer3" instance=ExtResource("3_v70m6")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Your sacrifice 
+will never be known
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+visibility_timer = 30.0
+invisibility_timer = 37.0
+typing_speed = 0.8
+
+[node name="Fading Label2" parent="VBoxContainer3" instance=ExtResource("3_v70m6")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "But you will rest easy 
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+visibility_timer = 35.0
+invisibility_timer = 37.0
+typing_speed = 0.8
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -237.5
+offset_right = 246.5
+offset_bottom = 952.0
+grow_horizontal = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Fading Label" parent="VBoxContainer4" instance=ExtResource("3_v70m6")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Knowing, 
+Your actions today 
+have allowed humanity 
+to live another day
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+visibility_timer = 40.0
+invisibility_timer = 48.0
+typing_speed = 0.3
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -237.5
+offset_right = 246.5
+offset_bottom = 952.0
+grow_horizontal = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Fading Label" parent="VBoxContainer5" instance=ExtResource("3_v70m6")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_etvfb")
+theme_override_font_sizes/font_size = 40
+text = "Thank You for Playing"
+horizontal_alignment = 1
+vertical_alignment = 1
+visibility_timer = 55.0
+invisibility_timer = 65.0
+typing_speed = 0.5
+
+[node name="bg" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_im5nm")
+volume_db = -10.0
+autoplay = true
+bus = &"Music"
+playback_type = 1
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(785, 526)
+amount = 800
+lifetime = 5.0
+speed_scale = 0.05
+emission_shape = 3
+emission_rect_extents = Vector2(1200, 600)
+gravity = Vector2(200, 0)
+radial_accel_max = 5.0
+scale_amount_min = 0.5
+scale_amount_max = 2.0

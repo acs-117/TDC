@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmcy1m4fp5uh5"]
+
+[ext_resource type="Texture2D" uid="uid://cac3a2v6xdpa1" path="res://assets/sprites/scenery/prefab_objects/toxic_pipe.png" id="1_w3bf1"]
+[ext_resource type="Script" path="res://scripts/toxic_pipe.gd" id="1_wsdo4"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_6dnxt"]
+b = Vector2(0, 113)
+
+[sub_resource type="Gradient" id="Gradient_s0be4"]
+colors = PackedColorArray(0.372694, 0.372694, 0.372694, 1, 1, 1, 1, 1)
+
+[node name="ToxicPipe" type="Area2D"]
+script = ExtResource("1_wsdo4")
+grav_x = 100
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_w3bf1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -118)
+shape = SubResource("SegmentShape2D_6dnxt")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(0, -10)
+amount = 100
+preprocess = 10.0
+emission_shape = 1
+emission_sphere_radius = 3.0
+gravity = Vector2(0, -200)
+radial_accel_min = 10.0
+radial_accel_max = 20.0
+scale_amount_max = 4.0
+color = Color(0.929412, 1, 0.835294, 1)
+color_initial_ramp = SubResource("Gradient_s0be4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

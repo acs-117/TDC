@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dk0hytxrl2p4i"]
+
+[ext_resource type="Script" path="res://scripts/projectile.gd" id="1_7ekwg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8l7l"]
+size = Vector2(32, 32)
+
+[sub_resource type="Gradient" id="Gradient_p21p6"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tcbc1"]
+gradient = SubResource("Gradient_p21p6")
+height = 4
+fill = 2
+fill_from = Vector2(0.5, 0.483456)
+
+[node name="LightProjectile" type="CharacterBody2D" groups=["projectile"]]
+scale = Vector2(0.1, 0.1)
+script = ExtResource("1_7ekwg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_a8l7l")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.963977, 0.703712, 0, 1)
+energy = 5.0
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_tcbc1")
+texture_scale = 2.91

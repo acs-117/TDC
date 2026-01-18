@@ -1,0 +1,159 @@
+[gd_scene load_steps=23 format=3 uid="uid://ykge27skia3k"]
+
+[ext_resource type="Script" path="res://scripts/stalker.gd" id="1_ehfgl"]
+[ext_resource type="Texture2D" uid="uid://cxuklre61w0a8" path="res://assets/sprites/infected/Stalker_Idle.png" id="2_52436"]
+[ext_resource type="PackedScene" uid="uid://dwggswhcp58fe" path="res://scenes/blood.tscn" id="2_kqm06"]
+[ext_resource type="Texture2D" uid="uid://coih11w2lky4j" path="res://assets/sprites/infected/Stalker_Run.png" id="3_yewla"]
+[ext_resource type="AudioStream" uid="uid://bwcyd4je4iiyk" path="res://assets/audio/enemy_sounds/stalker_charging.mp3" id="5_3sosj"]
+[ext_resource type="AudioStream" uid="uid://bud3vhb6ux7vr" path="res://assets/audio/enemy_sounds/stalker_hurt.mp3" id="6_cijuc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kyfg2"]
+atlas = ExtResource("2_52436")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bxle"]
+atlas = ExtResource("2_52436")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7lsr"]
+atlas = ExtResource("2_52436")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cg8y"]
+atlas = ExtResource("2_52436")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oesxf"]
+atlas = ExtResource("3_yewla")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2m113"]
+atlas = ExtResource("3_yewla")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abarc"]
+atlas = ExtResource("3_yewla")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uq7u8"]
+atlas = ExtResource("3_yewla")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jeoj4"]
+atlas = ExtResource("3_yewla")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w41sl"]
+atlas = ExtResource("3_yewla")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5313j"]
+atlas = ExtResource("3_yewla")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fg4ta"]
+atlas = ExtResource("3_yewla")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yvl12"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kyfg2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bxle")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7lsr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cg8y")
+}],
+"loop": true,
+"name": &"stalker_idle",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oesxf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2m113")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abarc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uq7u8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jeoj4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w41sl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5313j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fg4ta")
+}],
+"loop": true,
+"name": &"stalker_run",
+"speed": 24.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vvxo4"]
+size = Vector2(8, 32)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4fugk"]
+radius = 5.0
+height = 36.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7rstc"]
+radius = 6.0
+height = 28.0
+
+[node name="Stalker" type="CharacterBody2D"]
+z_index = 1
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_ehfgl")
+blood_scene = ExtResource("2_kqm06")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_yvl12")
+animation = &"stalker_run"
+frame = 7
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_vvxo4")
+
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_4fugk")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(9, -15)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_7rstc")
+
+[node name="Charge" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_3sosj")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="Hurt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_cijuc")
+bus = &"SFX"
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

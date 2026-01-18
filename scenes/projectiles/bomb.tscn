@@ -1,0 +1,137 @@
+[gd_scene load_steps=20 format=3 uid="uid://dj5barwpegegd"]
+
+[ext_resource type="Script" path="res://scripts/bomb.gd" id="1_kkfwc"]
+[ext_resource type="Texture2D" uid="uid://ttoihars6hlt" path="res://assets/sprites/weapons/mini_atomizer.png" id="2_th11v"]
+[ext_resource type="Texture2D" uid="uid://pjo1m3b8fi0t" path="res://assets/sprites/weapons/explosion-Sheet.png" id="3_324dx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v3y27"]
+radius = 3.16228
+
+[sub_resource type="Gradient" id="Gradient_8l5fj"]
+offsets = PackedFloat32Array(0, 0.0185792)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x4ow0"]
+gradient = SubResource("Gradient_8l5fj")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_76idk"]
+radius = 50.0
+
+[sub_resource type="Gradient" id="Gradient_2swes"]
+offsets = PackedFloat32Array(0, 0.384279, 0.558952, 0.768559)
+colors = PackedColorArray(1, 1, 1, 1, 0.416174, 0.416174, 0.416174, 1, 0.217143, 0.217143, 0.217143, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_i7e5e"]
+gradient = SubResource("Gradient_2swes")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8f0j"]
+atlas = ExtResource("3_324dx")
+region = Rect2(192, 192, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xw5i"]
+atlas = ExtResource("3_324dx")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_op47r"]
+atlas = ExtResource("3_324dx")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6dfp"]
+atlas = ExtResource("3_324dx")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8hk5"]
+atlas = ExtResource("3_324dx")
+region = Rect2(0, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1seab"]
+atlas = ExtResource("3_324dx")
+region = Rect2(96, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fl5es"]
+atlas = ExtResource("3_324dx")
+region = Rect2(192, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1iv6d"]
+atlas = ExtResource("3_324dx")
+region = Rect2(0, 192, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yn5gr"]
+atlas = ExtResource("3_324dx")
+region = Rect2(96, 192, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cmjkm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h8f0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xw5i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_op47r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6dfp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8hk5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1seab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fl5es")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1iv6d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yn5gr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 16.0
+}]
+
+[node name="Bomb" type="RigidBody2D"]
+mass = 0.3
+gravity_scale = 0.3
+script = ExtResource("1_kkfwc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_th11v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_v3y27")
+
+[node name="GrenadeLight" type="PointLight2D" parent="."]
+position = Vector2(0, -1.5)
+color = Color(0.877346, 3.87453e-06, 1.2514e-06, 1)
+energy = 0.0
+texture = SubResource("GradientTexture2D_x4ow0")
+
+[node name="ExplosionNodes" type="Area2D" parent="."]
+
+[node name="ExplosionArea" type="CollisionShape2D" parent="ExplosionNodes" groups=["Explosion"]]
+shape = SubResource("CircleShape2D_76idk")
+disabled = true
+
+[node name="ExplosionLight" type="PointLight2D" parent="ExplosionNodes"]
+position = Vector2(1.90735e-06, -5.72205e-06)
+scale = Vector2(3.375, 3.21875)
+color = Color(1, 0.557755, 0.299841, 1)
+energy = 2.0
+texture = SubResource("GradientTexture2D_i7e5e")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ExplosionNodes"]
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_cmjkm")
+
+[connection signal="body_entered" from="ExplosionNodes" to="." method="_on_explosion_nodes_body_entered"]
